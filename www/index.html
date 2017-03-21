@@ -36,7 +36,9 @@ Some notes:
         <title>Hello World</title>
 
     </head>
+  
     <body>
+        
         <div class="app">
             <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
@@ -44,8 +46,11 @@ Some notes:
                 <p class="event received">Device is Ready</p>
 
             </div>
-            <button id = "getPosition">CURRENT POSITION</button>
-            <form method=post action=connect.php target=list style="display:none">
+                 
+            
+            <button id = "getPosition">CURRENT POSITION</button> 
+            <!--<button id = "watchPosition">WATCH POSITION</button>-->
+            <form  action=connect.php method=post target=list style="display:none">
                 <table align=center>
                     <tr>
                         <td align=center><input type=text name=id><br>ID</td>
@@ -54,8 +59,17 @@ Some notes:
                         <td align=center valign=top><input type=submit></td>
                     </tr>
                 </table>
+                        <!--<?php 
+                            if($_GET["id"] || $_GET["type"] || $_GET["params"])|| $_GET["submit"]) 
+                            { 
+                                echo "Welcome: ". $_GET['id'] . "<br />";
+                                echo "Your Type is: ". $_GET["type"] . "<br />";
+                                echo "Your Params are: ". $_GET["params"];
+                            }
+                        ?>-->
             </form>
-            <!--<button id = "watchPosition">WATCH POSITION</button>-->
+
+        
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
