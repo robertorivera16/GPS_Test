@@ -34,9 +34,11 @@ Some notes:
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello World</title>
-        
+
     </head>
+  
     <body>
+        
         <div class="app">
             <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
@@ -44,8 +46,30 @@ Some notes:
                 <p class="event received">Device is Ready</p>
 
             </div>
-            <button id = "getPosition">CURRENT POSITION</button>
+                 
+            
+            <button id = "getPosition">CURRENT POSITION</button> 
             <button id = "watchPosition">WATCH POSITION</button>
+            <form  action=connect.php method=post target=list style="display:none">
+                <table align=center>
+                    <tr>
+                        <td align=center><input type=text name=id><br>ID</td>
+                        <td align=center><input type=text name=type><br>TYPE</td>
+                        <td align=center><input type=text name=params><br>PARAMS</td>
+                        <td align=center valign=top><input type=submit></td>
+                    </tr>
+                </table>
+                        <!--<?php 
+                            if($_GET["id"] || $_GET["type"] || $_GET["params"])|| $_GET["submit"]) 
+                            { 
+                                echo "Welcome: ". $_GET['id'] . "<br />";
+                                echo "Your Type is: ". $_GET["type"] . "<br />";
+                                echo "Your Params are: ". $_GET["params"];
+                            }
+                        ?>-->
+            </form>
+
+        
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

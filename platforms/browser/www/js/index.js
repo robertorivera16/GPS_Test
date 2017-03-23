@@ -16,6 +16,7 @@
              * specific language governing permissions and limitations
              * under the License.
              */
+
 var app = {
     // Application Constructor
     initialize: function () {
@@ -55,16 +56,34 @@ function getPosition() {
     var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 
     function onSuccess(position) {
+        
+        //IF-ELSE Makes sure that localStorage is functional 
+        if (typeof(Storage) !== "undefined") {
+            
+            //Store Latitude and Longitude coordinates from position in localStorage
+            localStorage.setItem("latitude", position.coords.latitude);
+            localStorage.setItem("longitude", position.coords.longitude);
+            
+            //Use the data previously saved to show a web alert
+            alert('Latitude: ' + localStorage.getItem("latitude") + " Longitude: " + localStorage.getItem("longitude"));
+            
+            
+        } else {
+            
+            alert("No web storage support.");
+        }
 
-        alert('Latitude: '          + position.coords.latitude          + '\n' +
-              'Longitude: '         + position.coords.longitude         + '\n' +
-              'Altitude: '          + position.coords.altitude          + '\n' +
-              'Accuracy: '          + position.coords.accuracy          + '\n' +
-              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-              'Heading: '           + position.coords.heading           + '\n' +
-              'Speed: '             + position.coords.speed             + '\n' +
-              'Timestamp: '         + position.timestamp                + '\n');
+
     };
+
+
+
+
+
+
+
+
+
 
     function onError(error) {
         alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
